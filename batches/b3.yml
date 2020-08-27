@@ -1,0 +1,13 @@
+version: 1
+context_stage_mappings:
+- context:
+    location: "l12"
+  period: 2
+  stages:
+  - name: "STG"
+  - name: "FND"
+- context:
+    location: "l2"
+  period: 1
+additional_param:
+- "location"

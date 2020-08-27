@@ -1,0 +1,20 @@
+version: 1
+job:
+  type: "external"
+config:
+  endpoint: "lo_databricks"
+  properties:
+    run_name: "some_run_name"
+    task: "jar"
+    task_properties:
+      main_class: "/path/to/notebook"
+      parameters:
+        - a
+    libraries:
+      - type: maven
+        coordinates: a
+        repo: a
+        exclusions:
+          - a
+          - b
+    timeout_seconds: 60

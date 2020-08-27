@@ -1,0 +1,14 @@
+version: 1
+context_stage_mappings:
+- context:
+    location: "l1"
+  period: 1
+  stages:
+  - name: "STG"
+- context:
+    location: "l2"
+  period: 1
+  stages:
+  - name: "STG"
+additional_param:
+- "location"

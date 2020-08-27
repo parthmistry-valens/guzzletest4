@@ -1,0 +1,17 @@
+version: 1
+job:
+  type: "ingestion"
+source:
+  endpoint: "lo_jdbc"
+  properties:
+    table: "asdf"
+schema:
+  strict_schema_check: true
+  schema_derivation_strategy: "source"
+  discard: true
+target:
+  endpoint: "lo_hive"
+  properties:
+    auto_create_table: true
+    table: "test"
+  operation: "append"

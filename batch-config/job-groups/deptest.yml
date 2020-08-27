@@ -1,0 +1,8 @@
+description: ""
+version: 1
+properties:
+  auto_dependency: true
+jobs:
+- "j1"
+- "j2"
+parallel: 5

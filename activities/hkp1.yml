@@ -1,0 +1,20 @@
+version: 1
+job:
+  type: "housekeeping"
+housekeeping:
+  operation: "delete"
+  properties:
+    table: "test"
+  endpoint: "lo_hive"
+  housekeeping_column: "create_date"
+  reference_point:
+    reference_type: "current_time"
+  retention_strategies:
+  - strict_retention_period_end: true
+    day_of_week: 1
+    strict_retention_grain:
+    - "system"
+    partitions:
+    - system: "test"
+    - location: "l1"
+    retention_strategy: "2d, *w, *m, *q, *y"

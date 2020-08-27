@@ -1,0 +1,3 @@
+version: 1
+technology: "file"
+type: "dbfs"

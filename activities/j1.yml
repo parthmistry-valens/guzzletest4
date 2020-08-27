@@ -1,0 +1,15 @@
+version: 1
+job:
+  type: "ingestion"
+source:
+  endpoint: "lo_jdbc_mysql"
+  properties:
+    query: "select * from ${src_table} where 1=1 or name = ${business_date[0..3]}"
+schema:
+  strict_schema_check: true
+  schema_derivation_strategy: "source"
+  discard: true
+target:
+  endpoint: "lo_jdbc_mysql"
+  properties:
+    table: "${tgt_table}"

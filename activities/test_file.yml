@@ -1,0 +1,22 @@
+source:
+  endpoint: "lo_lfs"
+  properties:
+    format: "delimited"
+    source_file_pattern: "**/users2.csv"
+    format_properties:
+      column_delimiter: ","
+      quote_delimiter: "\""
+      contains_header: true
+      escape_char: "\\\\"
+    charset: "UTF-8"
+job:
+  type: "ingestion"
+version: 1
+target:
+  endpoint: "lo_lfs"
+  properties:
+    format: "parquet"
+    charset: "UTF-8"
+    format_properties:
+      compression: "snappy"
+    path: "somepath"

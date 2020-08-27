@@ -1,0 +1,15 @@
+version: 1
+job:
+  type: "constraint_checks"
+source:
+  endpoint: "lo_hive"
+  properties:
+    table: "a"
+    filter: "b"
+  primary_keys:
+  - "ab"
+  - "asdf"
+validation_rules:
+  a:
+    sql: "b1"
+    constraint_data: "c"

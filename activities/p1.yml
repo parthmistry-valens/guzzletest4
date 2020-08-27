@@ -1,0 +1,10 @@
+version: 1
+job:
+  type: "processing"
+source:
+  endpoint: "lo_hive"
+target:
+  endpoint: "lo_hive"
+  operation: "append"
+  properties:
+    template: "default"

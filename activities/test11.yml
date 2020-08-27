@@ -1,0 +1,25 @@
+source:
+  endpoint: "lo_jdbc_mssql"
+  incremental_load:
+    filter: "ab\ncd"
+    watermarking_key_columns:
+    - "abc"
+    - "def"
+    watermarking_columns:
+    - name: "a"
+    - name: "c"
+  properties:
+    table: "a"
+job:
+  type: "ingestion"
+version: 1
+schema:
+  strict_schema_check: true
+  schema_derivation_strategy: "source"
+  discard: true
+target:
+  endpoint: "lo_hive"
+  properties:
+    auto_create_table: true
+    table: "a"
+  operation: "append"

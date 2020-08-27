@@ -1,0 +1,13 @@
+version: 1
+job:
+  type: "processing"
+source:
+  endpoint: "lo_hive"
+  additional_columns:
+  - name: "CREATED_DATE"
+    framework_generated: true
+    framework_column: "w_created_ts"
+  - name: "UPDATED_DATE"
+    framework_generated: true
+    framework_column: "w_refresh_ts"
+target: {}

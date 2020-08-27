@@ -1,0 +1,23 @@
+version: 1
+job:
+  type: "housekeeping"
+housekeeping:
+  operation: "move"
+  properties:
+    table: "t1"
+    secondary_table: "m1"
+    table_dependency:
+    - "xc"
+  endpoint: "lo_hive"
+  housekeeping_column: "c1"
+  reference_point:
+    reference_type: "value"
+    value: "vv"
+  retention_strategies:
+  - strict_retention_period_end: false
+    day_of_week: 1
+    strict_retention_grain:
+    - "dd"
+    partitions:
+    - sdf: "sdf1"
+    retention_strategy: "*d, 0w, 2m, 1q, *y"

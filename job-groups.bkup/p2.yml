@@ -1,0 +1,26 @@
+description: ""
+version: 1
+properties:
+  auto_dependency: false
+jobs:
+- test_msaccess:
+    job_parameters:
+      a2: "v21"
+      b2: "v22"
+    spark_properties:
+      num_executors: 5
+      driver_memory: "11G"
+      executor_memory: "1G"
+      additional_arguments: "--conf spark.development=true"
+- hkp2:
+    spark_properties:
+      num_executors: 22
+      driver_memory: "22G"
+      executor_memory: "1G"
+      additional_arguments: "--conf spark.development=true"
+parallel: 2
+spark_properties:
+  num_executors: 5
+  driver_memory: "2G"
+  executor_memory: "1G"
+  additional_arguments: "--conf spark.development=true"

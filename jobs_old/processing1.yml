@@ -1,0 +1,42 @@
+version: 1
+job:
+  type: "processing"
+source:
+  endpoint: "lo_jdbc_mssql"
+  incremental: false
+  additional_columns:
+    - name: CREATED_DATE
+      value: ${business_date}
+      framework_generated: false
+      framework_column: w_created_ts
+    - name: UPDATED_DATE
+      value: ${business_date}
+      framework_generated: false
+      framework_column: w_refresh_ts
+    - name: is_current_row
+      framework_generated: true
+      framework_column: w_current_record_flag
+    - name: EFFECTIVE_START_DATE
+      value: ${business_date}
+      framework_generated: false
+      framework_column: w_eff_start_date_ts
+    - name: EFFECTIVE_END_DATE
+      value: ${business_date}
+      framework_generated: false
+      framework_column: w_eff_end_date_ts
+  properties:
+    sql: "select * from src"
+target:
+  endpoint: "lo_jdbc_mssql"
+  operation: "update_only"
+  #soft_delete: true
+  primary_key_columns:
+  - "PRODUCT_ID"
+  merge_columns:
+    - price
+  properties:
+    table: "tgt"
+    #template: test1
+    #pre_sql: "delete from tgt"
+    history_columns:
+      - PRICE

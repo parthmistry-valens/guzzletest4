@@ -1,0 +1,6 @@
+version: 1
+jobs:
+- j1
+parallel: 1
+properties:
+  auto_dependency: false

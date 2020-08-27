@@ -1,0 +1,53 @@
+source:
+  endpoint: "lo_lfs"
+  properties:
+    format: "delimited"
+    charset: "UTF-8"
+    format_properties:
+      column_delimiter: ","
+      quote_delimiter: "\""
+      escape_char: "\\\\"
+      contains_header: true
+    source_file_pattern: "prestaging/usersds1.csv_testc2"
+job:
+  type: "ingestion"
+reject:
+  endpoint: "lo_lfs"
+  properties:
+    format: "delimited"
+    charset: "UTF-8"
+    format_properties:
+      column_delimiter: ","
+      quote_delimiter: "\""
+      contains_header: true
+      merge_file: true
+    path: "any_reject"
+version: 1
+schema:
+  strict_schema_check: true
+  schema_derivation_strategy: "source"
+  discard: true
+  columns:
+  - nullable:
+      value: true
+      discard: true
+    name: "age"
+    validate: false
+    partition_column: false
+    data_type:
+      value: "int"
+      discard: true
+    primary_key:
+      value: false
+      discard: true
+target:
+  endpoint: "lo_lfs"
+  properties:
+    format: "delimited"
+    charset: "UTF-8"
+    format_properties:
+      column_delimiter: ","
+      quote_delimiter: "\""
+      merge_file: true
+      contains_header: true
+    path: "any_target"

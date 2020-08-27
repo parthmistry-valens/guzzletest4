@@ -1,0 +1,16 @@
+version: 1
+job:
+  type: "external"
+config:
+  endpoint: "lo_jdbc_mssql"
+  properties:
+    script: "a1ssfs"
+lineages:
+  source:
+  - endpoint: "lo_hive"
+    properties:
+      table: "dsf"
+  target:
+  - endpoint: "lo_lfs"
+    properties:
+      source_file_pattern: "xx"

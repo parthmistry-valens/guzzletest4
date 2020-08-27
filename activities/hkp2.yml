@@ -1,0 +1,19 @@
+version: 1
+job:
+  type: "housekeeping"
+housekeeping:
+  properties:
+    table: "t1"
+  endpoint: "lo_hive"
+  housekeeping_column: "c1"
+  operation: delete
+  reference_point:
+    reference_type: "current_time"
+  retention_strategies:
+  - strict_retention_period_end: true
+    day_of_week: 1
+    strict_retention_grain:
+    - "system"
+    partitions:
+    - system: "s1"
+    retention_strategy: "9d, *w, *m, *q, *y"
