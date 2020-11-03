@@ -8,4 +8,4 @@ schema:
 source:
   endpoint: "d1"
   properties:
-    table: "s"
+    table: "s2"
