@@ -1,2 +1,4 @@
 version: 1
-context_stage_mappings: []
+context_stage_mappings:
+- context: {}
+  period: 2
