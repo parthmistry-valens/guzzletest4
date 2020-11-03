@@ -2,3 +2,7 @@ version: 1
 context_stage_mappings:
 - context: {}
   period: 2
+  stages:
+  - job_groups:
+    - "p22"
+    name: "STG"
