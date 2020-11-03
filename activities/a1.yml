@@ -7,3 +7,5 @@ schema:
   discard: true
 source:
   endpoint: "d1"
+  properties:
+    table: "s"
