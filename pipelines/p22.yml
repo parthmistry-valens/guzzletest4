@@ -1,6 +1,7 @@
 description: ""
 version: 1
-properties: {}
+properties:
+  auto_dependency: false
 jobs:
 - "file_validate1"
-parallel: 1222
+parallel: 1
