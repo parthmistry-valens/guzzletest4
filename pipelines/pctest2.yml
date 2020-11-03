@@ -3,4 +3,4 @@ version: 1
 properties:
   auto_dependency: false
 jobs: []
-parallel: 2
+parallel: 23
