@@ -1,5 +1,6 @@
 description: ""
 version: 1
-properties: {}
+properties:
+  auto_dependency: false
 jobs: []
-parallel: 1
+parallel: 2
