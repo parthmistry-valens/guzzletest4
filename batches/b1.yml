@@ -5,4 +5,4 @@ context_stage_mappings:
   - name: "STG"
     job_groups:
     - "p22"
-  period: 3
+  period: 33
