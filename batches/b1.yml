@@ -1,6 +1,6 @@
 version: 1
 context_stage_mappings:
-- period: 1
+- period: 2
   context: {}
   stages:
   - name: "STG"
