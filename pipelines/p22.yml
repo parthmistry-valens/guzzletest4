@@ -1,6 +1,7 @@
-description: ""
 version: 1
+description: ""
+parallel: 1222
 properties: {}
 jobs:
 - "file_validate1"
-parallel: 1222
+folder: "/p2"
