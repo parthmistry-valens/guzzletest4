@@ -4,4 +4,4 @@ parallel: 1222
 properties: {}
 jobs:
 - "file_validate1"
-folder: "/p2"
+folder: "/p3"
