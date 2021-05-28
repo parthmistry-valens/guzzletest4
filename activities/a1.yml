@@ -1,11 +1,27 @@
 version: 1
 job:
   type: "ingestion"
-schema:
-  strict_schema_check: true
-  schema_derivation_strategy: "source"
-  discard: true
 source:
   endpoint: "d1"
   properties:
     table: "s2"
+    format_properties:
+      clean_column_name: false
+schema:
+  schema_derivation_strategy: "source"
+  strict_schema_check: true
+  discard: true
+target:
+  endpoint: "lo_jdbc1"
+  properties:
+    format: "delimited"
+    charset: "UTF-8"
+    path: "t"
+    preserve_hierarchy: false
+    format_properties:
+      column_delimiter: ","
+      quote_delimiter: "\""
+      escape_char: "\\\\"
+      contains_header: true
+      merge_file: false
+      trim_white_space: "none"
