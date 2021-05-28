@@ -16,7 +16,7 @@ target:
   properties:
     format: "delimited"
     charset: "UTF-8"
-    path: "t"
+    path: "test"
     preserve_hierarchy: false
     format_properties:
       column_delimiter: ","
