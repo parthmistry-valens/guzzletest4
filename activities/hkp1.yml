@@ -4,7 +4,7 @@ job:
 housekeeping:
   operation: "delete"
   properties:
-    table: "test1"
+    table: "test"
   endpoint: "lo_hive"
   housekeeping_column: "create_date"
   reference_point:

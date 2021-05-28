@@ -21,4 +21,4 @@ housekeeping:
     strict_retention_period_end: false
     strict_retention_grain:
     - "dd"
-folder: "/"
+folder: "af1/af2"

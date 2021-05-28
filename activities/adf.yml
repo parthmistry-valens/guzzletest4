@@ -1,0 +1,11 @@
+version: 1
+job:
+  type: "external"
+config:
+  endpoint: "lo_adf"
+  properties:
+    pipeline_name: "pipeline13"
+    parameters:
+      a: "b"
+      system: "${system}"
+folder: "/a/b"

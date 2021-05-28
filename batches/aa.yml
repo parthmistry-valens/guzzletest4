@@ -1,6 +1,8 @@
 version: 1
 context_stage_mappings:
-- stages:
+- context: {}
+  rerun_batch: false
+  stages:
   - name: "STG"
     rerun_batch: true
-  context: {}
+folder: "/f3"

@@ -2,26 +2,27 @@ version: 1
 job:
   type: "ingestion"
 source:
-  endpoint: "lo_jdbc_mysql"
+  endpoint: "rd1"
   properties:
-    table: "t3"
-    partition_column: "birth_date"
-    num_partitions: 5
+    source_file_pattern: "users3_1.csv"
+    format: "delimited"
+    charset: "UTF-8"
+    partial_load: false
     format_properties:
+      column_delimiter: ","
+      quote_delimiter: "\""
+      escape_char: ";"
+      contains_header: true
+      infer_schema: false
       clean_column_name: false
-  incremental_load:
-    watermarking_columns:
-    - name: "id"
-    watermarking_key_columns:
-    - "abc"
 schema:
   schema_derivation_strategy: "source"
   strict_schema_check: true
   discard: true
   columns:
-  - name: "abc"
+  - name: "test_col"
     transform_sql:
-      value: "'test'"
+      value: "'abc\\\\\\\\xyz${job_config_name}'"
     nullable:
       value: true
 target:
@@ -29,11 +30,12 @@ target:
   properties:
     format: "delimited"
     charset: "UTF-8"
-    path: "jdbc-ptest/j1"
+    path: "out/test"
     preserve_hierarchy: false
     format_properties:
       column_delimiter: ","
       quote_delimiter: "\""
       escape_char: "\\\\"
       contains_header: true
-      merge_file: true
+      merge_file: false
+      trim_white_space: "none"

@@ -1,13 +1,14 @@
 version: 1
+additional_param:
+- "location"
 context_stage_mappings:
 - context:
     location: "l12"
-  period: 2
   stages:
   - name: "STG"
   - name: "FND"
+  period: 2
 - context:
-    location: "l2"
+    location: "l22"
   period: 1
-additional_param:
-- "location"
+folder: "Bf1"

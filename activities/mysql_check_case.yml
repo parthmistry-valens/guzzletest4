@@ -4,36 +4,24 @@ job:
 source:
   endpoint: "lo_jdbc_mysql"
   properties:
-    table: "t3"
-    partition_column: "birth_date"
-    num_partitions: 5
+    query: "select c1.id as id, c1.name as name, c2.Name as Name from case1 c1 left join case2 c2 on c1.id = c2.id"
     format_properties:
       clean_column_name: false
-  incremental_load:
-    watermarking_columns:
-    - name: "id"
-    watermarking_key_columns:
-    - "abc"
 schema:
   schema_derivation_strategy: "source"
   strict_schema_check: true
   discard: true
-  columns:
-  - name: "abc"
-    transform_sql:
-      value: "'test'"
-    nullable:
-      value: true
 target:
   endpoint: "rd1"
   properties:
     format: "delimited"
     charset: "UTF-8"
-    path: "jdbc-ptest/j1"
+    path: "mysql_check"
     preserve_hierarchy: false
     format_properties:
       column_delimiter: ","
       quote_delimiter: "\""
       escape_char: "\\\\"
       contains_header: true
-      merge_file: true
+      merge_file: false
+      trim_white_space: "none"

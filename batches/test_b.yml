@@ -4,5 +4,4 @@ context_stage_mappings:
   stages:
   - name: "STG"
     job_groups:
-    - "p22"
-folder: "/f3"
+    - "p1"

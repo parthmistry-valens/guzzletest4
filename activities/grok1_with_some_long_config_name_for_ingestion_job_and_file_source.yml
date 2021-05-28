@@ -1,34 +1,36 @@
-version: 1
+folder: "af1/af2"
 job:
-  description: "this job parse nginx logs using grok expression and stored into nginx table"
+  type: "ingestion"
   tags:
   - "demo"
   - "nginx"
   - "grok"
-  type: "ingestion"
+  description: "this job parse nginx logs using grok expression and stored into nginx table"
+schema:
+  schema_derivation_strategy: "source"
+  strict_schema_check: true
+  discard: true
 source:
   endpoint: "lo_lfs"
   properties:
+    source_file_pattern: "grok/access.log*."
     format: "text"
-    format_properties:
-      parser:
-        type: "grok"
-        pattern: "%{IPORHOST:clientip} (?:-|%{USER:ident}) (?:-|%{USER:auth}) \\\\[%{HTTPDATE:timestamp}\\\\] \\\\\"(?:%{WORD:verb} %{NOTSPACE:request}(?: HTTP/%{NUMBER:httpversion})?|-)\\\\\" %{NUMBER:response} (?:-|%{NUMBER:bytes})"
-    source_file_pattern: "grok/access.log*"
     charset: "UTF-8"
     partial_load: true
-schema:
-  strict_schema_check: true
-  schema_derivation_strategy: "source"
-  discard: true
+    format_properties:
+      clean_column_name: false
+      parser:
+        pattern: "%{IPORHOST:clientip} (?:-|%{USER:ident}) (?:-|%{USER:auth}) \\\\[%{HTTPDATE:timestamp}\\\\] \\\\\"(?:%{WORD:verb} %{NOTSPACE:request}(?: HTTP/%{NUMBER:httpversion})?|-)\\\\\" %{NUMBER:response} (?:-|%{NUMBER:bytes})"
+        type: "grok"
 target:
   endpoint: "lo_lfs"
   properties:
     format: "delimited"
     charset: "UTF-8"
+    path: "grok-target"
     format_properties:
       column_delimiter: ","
       quote_delimiter: "\""
-      merge_file: true
       contains_header: true
-    path: "grok-target"
+      merge_file: true
+version: 1

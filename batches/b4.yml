@@ -1,4 +1,6 @@
 version: 1
+additional_param:
+- "location"
 context_stage_mappings:
 - context:
     location: "loc1"
@@ -8,5 +10,4 @@ context_stage_mappings:
   - name: "STG"
 - context:
     location: "loc2"
-additional_param:
-- "location"
+folder: "bf1"

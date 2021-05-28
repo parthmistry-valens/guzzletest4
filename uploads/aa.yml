@@ -1,3 +1,4 @@
 version: 1
 config:
   naming_convention: "asdf"
+folder: "uf1/uf2"

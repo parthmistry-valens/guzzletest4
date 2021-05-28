@@ -1,2 +1,7 @@
 version: 1
+metadata:
+  tags:
+  - "tg1"
+  - "tg2"
 technology: "jdbc"
+folder: "/a2"

@@ -1,0 +1,46 @@
+version: 1
+job:
+  type: "ingestion"
+source:
+  endpoint: "restep"
+  properties:
+    format: "delimited"
+    charset: "UTF-8"
+    uri: ":persistentId?persistentId=doi:10.7910/DVN/HG7NV7/IXITH2"
+    http_method: "get"
+    api_response_logical_endpoint: "rd1"
+    format_properties:
+      column_delimiter: ","
+      quote_delimiter: "\""
+      escape_char: "\\\\"
+      contains_header: true
+      infer_schema: true
+      clean_column_name: false
+      trim_white_space: "none"
+    retry_interval: 5
+    timeout: 300
+schema:
+  schema_derivation_strategy: "source"
+  strict_schema_check: true
+  discard: true
+  columns:
+  - name: "test"
+    data_type:
+      value: "int"
+      validate: true
+    nullable:
+      value: true
+target:
+  endpoint: "rd1"
+  properties:
+    format: "delimited"
+    charset: "UTF-8"
+    path: "out/rest-test"
+    preserve_hierarchy: false
+    format_properties:
+      column_delimiter: ","
+      quote_delimiter: "\""
+      escape_char: "\\\\"
+      contains_header: true
+      merge_file: true
+      trim_white_space: "none"

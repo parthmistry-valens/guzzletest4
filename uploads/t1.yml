@@ -1,11 +1,12 @@
 version: 1
 config:
-  destination_directory: "/Users/parthmistry/tmp/template-test/dest"
   naming_convention: "users1.csv"
-  staging_directory: "/Users/parthmistry/tmp/template-test/stg"
   overwrite_same_file: false
+  staging_directory: "/Users/parthmistry/tmp/template-test/stg"
+  destination_directory: "/Users/parthmistry/tmp/template-test/dest"
+  validation_job_name: "file_validate1"
   makers:
   - "u6@test.com"
   checkers:
   - "u7@test.com"
-  validation_job_name: "file_validate1"
+folder: "uf1"

@@ -1,0 +1,24 @@
+version: 1
+job:
+  type: "ingestion"
+source:
+  endpoint: "lo_jdbc_mssql"
+  properties:
+    query: "select job_instance_id, system, location, name, module, tag, start_time, end_time from job_info"
+schema:
+  strict_schema_check: true
+  schema_derivation_strategy: "source"
+  discard: true
+target:
+  endpoint: "rd1"
+  properties:
+    format: "delimited"
+    path: "out/jdbc-test"
+    format_properties:
+      quote_delimiter: "\""
+      column_delimiter: ","
+      escape_char: "\\\\"
+      contains_header: true
+      merge_file: false
+    charset: "UTF-8"
+    preserve_hierarchy: false

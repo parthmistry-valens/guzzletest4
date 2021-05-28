@@ -1,0 +1,17 @@
+version: 1
+job:
+  type: "recon"
+source:
+  endpoint: "d1"
+  properties:
+    sql: |-
+      test
+       a
+      b
+target:
+  endpoint: "d1"
+  properties:
+    sql: |-
+      test3
+       a2
+      b2

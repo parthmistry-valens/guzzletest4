@@ -1,0 +1,7 @@
+version: 1
+description: ""
+parallel: 1
+properties:
+  auto_dependency: false
+jobs:
+- "csv_check_case"

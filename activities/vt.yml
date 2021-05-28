@@ -1,13 +1,16 @@
 source:
   endpoint: "rd1"
   properties:
-    format: "json"
+    format: "delimited"
     format_properties:
-      multiline: false
-    source_file_pattern: "abc"
+      infer_schema: false
+      quote_delimiter: "\""
+      column_delimiter: ","
+      escape_char: "\\\\"
+      contains_header: true
+    source_file_pattern: "ss"
     charset: "UTF-8"
     partial_load: false
-  column_mapping: {}
 job:
   type: "ingestion"
 version: 1
@@ -16,15 +19,19 @@ schema:
   schema_derivation_strategy: "source"
   discard: true
   columns:
-  - data_type:
-      value: "CHAR(10)"
-      validate: true
-    name: "a"
+  - name: "id"
+    nullable:
+      value: true
+    data_type:
+      discard: false
+  - name: "abc"
+    nullable:
+      value: true
 target:
   endpoint: "rd1"
   properties:
     format: "delimited"
-    path: "target/test.csv"
+    path: "ss"
     format_properties:
       column_delimiter: ","
       quote_delimiter: "\""

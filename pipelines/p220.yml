@@ -1,7 +1,4 @@
 version: 1
-metadata:
-  tags:
-  - "tg1"
 description: ""
 parallel: 1
 properties:
@@ -10,9 +7,12 @@ jobs:
 - file_validate1:
     spark_properties:
       driver_memory: "1100g"
+      instance_pool_id: "1207-092418-cars872-pool-RfzXKQvr"
+      workers:
+        num_workers: "1"
 spark_properties:
   num_executors: 3
   driver_memory: "1200g"
   executor_memory: "1200g"
   additional_arguments: "--conf abc2=def2"
-folder: "pf1"
+folder: "pf1/pf2"
