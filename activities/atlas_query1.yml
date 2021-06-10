@@ -4,7 +4,7 @@ job:
 source:
   endpoint: "lo_jdbc_mysql"
   properties:
-    query: "with wca as (select * from test_table2) select * from test_table1 t left join wc w on t.id = w.id where t.id in (select id from test_table4)"
+    query: "with wca as (select * from test_table) select * from test_table1 t left join wc w on t.id = w.id where t.id in (select id from test_table4)"
     format_properties:
       clean_column_name: false
 schema:
