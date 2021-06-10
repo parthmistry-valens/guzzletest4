@@ -4,6 +4,7 @@ job:
 source:
   endpoint: "lo_jdbc1"
   properties:
+    source_file_pattern: "test"
     format: "delimited"
     charset: "UTF-8"
     partial_load: false
