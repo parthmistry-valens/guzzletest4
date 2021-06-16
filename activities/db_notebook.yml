@@ -4,17 +4,17 @@ job:
 config:
   endpoint: "lo_databricks"
   properties:
-    run_name: "some_run_name"
+    run_name: "some_run_name2"
+    timeout_seconds: 60
     task: "jar"
     task_properties:
       main_class: "/path/to/notebook"
       parameters:
-        - a
+      - "a"
     libraries:
-      - type: maven
-        coordinates: a
-        repo: a
-        exclusions:
-          - a
-          - b
-    timeout_seconds: 60
+    - type: "maven"
+      coordinates: "a"
+      repo: "a"
+      exclusions:
+      - "a"
+      - "b"
