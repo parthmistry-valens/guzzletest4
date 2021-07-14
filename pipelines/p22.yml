@@ -1,18 +1,19 @@
-version: 1
-metadata:
-  tags:
-  - "tg1"
 description: ""
-parallel: 1
+version: 1
+folder: "pf1"
 properties:
   auto_dependency: false
+concurrency:
+  threads: 1
 jobs:
 - file_validate1:
     spark_properties:
       driver_memory: "1100g"
+metadata:
+  tags:
+  - "tg1"
 spark_properties:
   num_executors: 3
   driver_memory: "1200g"
   executor_memory: "1200g"
   additional_arguments: "--conf abc2=def2"
-folder: "pf1"

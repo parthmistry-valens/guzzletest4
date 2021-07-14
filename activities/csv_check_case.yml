@@ -1,24 +1,23 @@
-version: 1
-job:
-  type: "ingestion"
 source:
   endpoint: "rd1"
   properties:
-    source_file_pattern: "test-column-case.csv"
     format: "delimited"
-    charset: "UTF-8"
-    partial_load: false
     format_properties:
-      column_delimiter: ","
-      quote_delimiter: "\""
-      escape_char: "\\\\"
-      contains_header: true
+      escape_character: "\\\\"
       infer_schema: false
-      clean_column_name: false
+      quote_delimiter: "\""
+      column_delimiter: ","
+      trim_white_space: "none"
       columns:
       - Id: "1"
       - name_new: "2"
-      trim_white_space: "none"
+      contains_header: true
+    source_file_pattern: "test-column-case.csv"
+    charset: "UTF-8"
+    partial_load: false
+job:
+  type: "ingestion"
+version: 1
 schema:
   schema_derivation_strategy: "source"
   strict_schema_check: true
@@ -27,13 +26,13 @@ target:
   endpoint: "rd1"
   properties:
     format: "delimited"
-    charset: "UTF-8"
     path: "check"
-    preserve_hierarchy: false
     format_properties:
-      column_delimiter: ","
       quote_delimiter: "\""
+      column_delimiter: ","
+      trim_white_space: "none"
       escape_char: "\\\\"
       contains_header: true
       merge_file: true
-      trim_white_space: "none"
+    charset: "UTF-8"
+    preserve_hierarchy: false

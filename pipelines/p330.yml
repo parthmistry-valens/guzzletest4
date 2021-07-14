@@ -1,9 +1,10 @@
-version: 1
 description: ""
-parallel: 2
+version: 1
+folder: "pf1/pf2"
 properties:
   auto_dependency: false
+concurrency:
+  threads: 2
 jobs:
 - "ra22"
 - "ra22"
-folder: "pf1/pf2"

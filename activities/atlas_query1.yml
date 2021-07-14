@@ -1,12 +1,12 @@
-version: 1
-job:
-  type: "ingestion"
 source:
   endpoint: "lo_jdbc_mysql"
   properties:
-    query: "with wca as (select * from test_table) select * from test_table1 t left join wc w on t.id = w.id where t.id in (select id from test_table4)"
-    format_properties:
-      clean_column_name: false
+    format_properties: {}
+    sql: "with wca as (select * from test_table) select * from test_table1 t left join wc w on t.id = w.id where t.id in (select id from test_table4)"
+job:
+  type: "ingestion"
+version: 1
+folder: "/"
 schema:
   schema_derivation_strategy: "source"
   strict_schema_check: true
@@ -15,4 +15,3 @@ target:
   endpoint: "lo_jdbc_mysql"
   properties:
     table: "test_table3"
-folder: "/"

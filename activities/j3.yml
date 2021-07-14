@@ -1,10 +1,10 @@
-version: 1
-job:
-  type: "ingestion"
 source:
   endpoint: "lo_jdbc_mysql"
   properties:
-    query: "select * from ${src_table}"
+    sql: "select * from ${src_table}"
+job:
+  type: "ingestion"
+version: 1
 schema:
   strict_schema_check: true
   schema_derivation_strategy: "source"

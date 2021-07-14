@@ -3,10 +3,10 @@ source:
   properties:
     format: "delimited"
     format_properties:
+      escape_character: "\\\\"
       infer_schema: false
       quote_delimiter: "\""
       column_delimiter: ","
-      escape_char: "\\\\"
       contains_header: true
     source_file_pattern: "pk1.csv"
     charset: "UTF-8"

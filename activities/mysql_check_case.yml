@@ -1,12 +1,11 @@
-version: 1
-job:
-  type: "ingestion"
 source:
   endpoint: "lo_jdbc_mysql"
   properties:
-    query: "select c1.id as id, c1.name as name, c2.Name as Name from case1 c1 left join case2 c2 on c1.id = c2.id"
-    format_properties:
-      clean_column_name: false
+    format_properties: {}
+    sql: "select c1.id as id, c1.name as name, c2.Name as Name from case1 c1 left join case2 c2 on c1.id = c2.id"
+job:
+  type: "ingestion"
+version: 1
 schema:
   schema_derivation_strategy: "source"
   strict_schema_check: true
@@ -15,13 +14,13 @@ target:
   endpoint: "rd1"
   properties:
     format: "delimited"
-    charset: "UTF-8"
     path: "mysql_check"
-    preserve_hierarchy: false
     format_properties:
-      column_delimiter: ","
       quote_delimiter: "\""
+      column_delimiter: ","
+      trim_white_space: "none"
       escape_char: "\\\\"
       contains_header: true
       merge_file: false
-      trim_white_space: "none"
+    charset: "UTF-8"
+    preserve_hierarchy: false

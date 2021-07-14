@@ -1,24 +1,23 @@
-version: 1
-job:
-  type: "ingestion"
 source:
   endpoint: "restep"
   properties:
     format: "delimited"
-    charset: "UTF-8"
-    uri: ":persistentId?persistentId=doi:10.7910/DVN/HG7NV7/IXITH2"
-    http_method: "get"
-    api_response_logical_endpoint: "rd1"
     format_properties:
-      column_delimiter: ","
-      quote_delimiter: "\""
-      escape_char: "\\\\"
-      contains_header: true
+      escape_character: "\\\\"
       infer_schema: true
-      clean_column_name: false
+      quote_delimiter: "\""
+      column_delimiter: ","
       trim_white_space: "none"
+      contains_header: true
+    uri: ":persistentId?persistentId=doi:10.7910/DVN/HG7NV7/IXITH2"
+    api_response_logical_endpoint: "rd1"
+    http_method: "get"
+    charset: "UTF-8"
     retry_interval: 5
     timeout: 300
+job:
+  type: "ingestion"
+version: 1
 schema:
   schema_derivation_strategy: "source"
   strict_schema_check: true
@@ -34,13 +33,13 @@ target:
   endpoint: "rd1"
   properties:
     format: "delimited"
-    charset: "UTF-8"
     path: "out/rest-test"
-    preserve_hierarchy: false
     format_properties:
-      column_delimiter: ","
       quote_delimiter: "\""
+      column_delimiter: ","
+      trim_white_space: "none"
       escape_char: "\\\\"
       contains_header: true
       merge_file: true
-      trim_white_space: "none"
+    charset: "UTF-8"
+    preserve_hierarchy: false

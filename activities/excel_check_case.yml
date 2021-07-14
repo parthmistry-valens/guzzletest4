@@ -1,20 +1,19 @@
-version: 1
-job:
-  type: "ingestion"
 source:
   endpoint: "rd1"
   properties:
-    source_file_pattern: "test-column-case.xlsx"
     format: "excel"
+    format_properties:
+      data_address: "A1:C2"
+      infer_schema: true
+      empty_as_null: true
+      contains_header: true
+      sheet_name: "Sheet1"
+    source_file_pattern: "test-column-case.xlsx"
     charset: "UTF-8"
     partial_load: false
-    format_properties:
-      contains_header: true
-      infer_schema: true
-      clean_column_name: false
-      sheet_name: "Sheet1"
-      data_address: "A1:C2"
-      empty_as_null: true
+job:
+  type: "ingestion"
+version: 1
 schema:
   schema_derivation_strategy: "source"
   strict_schema_check: true
@@ -23,13 +22,13 @@ target:
   endpoint: "rd1"
   properties:
     format: "delimited"
-    charset: "UTF-8"
     path: "check"
-    preserve_hierarchy: false
     format_properties:
-      column_delimiter: ","
       quote_delimiter: "\""
+      column_delimiter: ","
+      trim_white_space: "none"
       escape_char: "\\\\"
       contains_header: true
       merge_file: true
-      trim_white_space: "none"
+    charset: "UTF-8"
+    preserve_hierarchy: false

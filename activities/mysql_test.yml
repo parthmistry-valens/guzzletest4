@@ -1,10 +1,10 @@
-version: 1
-job:
-  type: "ingestion"
 source:
   endpoint: "lo_jdbc_mssql"
   properties:
-    query: "select job_instance_id, system, location, name, module, tag, start_time, end_time from job_info"
+    sql: "select job_instance_id, system, location, name, module, tag, start_time, end_time from job_info"
+job:
+  type: "ingestion"
+version: 1
 schema:
   strict_schema_check: true
   schema_derivation_strategy: "source"

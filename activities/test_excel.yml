@@ -1,6 +1,3 @@
-version: 1
-job:
-  type: "ingestion"
 source:
   endpoint: "lo_excel"
   properties:
@@ -11,8 +8,10 @@ source:
       infer_schema: true
       empty_as_null: true
       contains_header: true
-      clean_column_name: true
     source_file_pattern: "source/P*"
+job:
+  type: "ingestion"
+version: 1
 schema:
   strict_schema_check: true
   schema_derivation_strategy: "source"

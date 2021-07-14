@@ -1,22 +1,21 @@
-version: 1
+source:
+  endpoint: "restep"
+  properties:
+    format: "json"
+    format_properties:
+      multiline: false
+    http_method: "get"
+    charset: "UTF-8"
+    retry_interval: 5
+    timeout: 300
 job:
   type: "ingestion"
   tags:
   - "tg1"
   - "tg2"
-source:
-  endpoint: "restep"
-  properties:
-    format: "json"
-    charset: "UTF-8"
-    http_method: "get"
-    format_properties:
-      clean_column_name: false
-      multiline: false
-    retry_interval: 5
-    timeout: 300
+version: 1
+folder: "/c/c1/b1"
 target:
   endpoint: "j1"
   properties:
     table: "aaa"
-folder: "/c/c1/b1"

@@ -1,18 +1,17 @@
-version: 1
-job:
-  type: "ingestion"
 source:
   endpoint: "rd1"
   properties:
-    source_file_pattern: "test-column-case.txt"
     format: "text"
-    charset: "UTF-8"
-    partial_load: false
     format_properties:
-      clean_column_name: true
       parser:
         pattern: "(?<id>.*),(?<Name>.*),(?<AGE>.*)"
         type: "regex"
+    source_file_pattern: "test-column-case.txt"
+    charset: "UTF-8"
+    partial_load: false
+job:
+  type: "ingestion"
+version: 1
 schema:
   schema_derivation_strategy: "source"
   strict_schema_check: true
@@ -21,13 +20,13 @@ target:
   endpoint: "rd1"
   properties:
     format: "delimited"
-    charset: "UTF-8"
     path: "check"
-    preserve_hierarchy: false
     format_properties:
-      column_delimiter: ","
       quote_delimiter: "\""
+      column_delimiter: ","
+      trim_white_space: "none"
       escape_char: "\\\\"
       contains_header: true
       merge_file: true
-      trim_white_space: "none"
+    charset: "UTF-8"
+    preserve_hierarchy: false

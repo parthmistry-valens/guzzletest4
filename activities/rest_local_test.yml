@@ -1,19 +1,18 @@
-version: 1
-job:
-  type: "ingestion"
 source:
   endpoint: "restep_local"
   properties:
     format: "json"
-    charset: "UTF-8"
-    uri: "/test"
-    http_method: "get"
-    api_response_logical_endpoint: "rest_tmp_response"
     format_properties:
-      clean_column_name: false
       multiline: true
+    uri: "/test"
+    api_response_logical_endpoint: "rest_tmp_response"
+    http_method: "get"
+    charset: "UTF-8"
     retry_interval: 2
     timeout: 300
+job:
+  type: "ingestion"
+version: 1
 schema:
   schema_derivation_strategy: "source"
   strict_schema_check: true
@@ -22,13 +21,13 @@ target:
   endpoint: "rd1"
   properties:
     format: "delimited"
-    charset: "UTF-8"
     path: "rest_test_timeouts"
-    preserve_hierarchy: false
     format_properties:
-      column_delimiter: ","
       quote_delimiter: "\""
+      column_delimiter: ","
+      trim_white_space: "none"
       escape_char: "\\\\"
       contains_header: true
       merge_file: false
-      trim_white_space: "none"
+    charset: "UTF-8"
+    preserve_hierarchy: false

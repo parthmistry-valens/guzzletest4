@@ -6,8 +6,8 @@ source:
     format_properties:
       column_delimiter: ","
       quote_delimiter: "\""
-      escape_char: "\\\\"
       contains_header: true
+      escape_character: "\\\\"
     source_file_pattern: "prestaging/usersds1.csv_testc2"
 job:
   type: "ingestion"

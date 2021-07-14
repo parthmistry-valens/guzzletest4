@@ -1,8 +1,9 @@
-version: 1
 description: ""
-parallel: 1
+version: 1
 properties:
   auto_dependency: false
+concurrency:
+  threads: 1
 jobs:
 - ra23:
     job_parameters:

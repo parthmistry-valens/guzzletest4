@@ -1,49 +1,48 @@
-version: 1
-job:
-  type: "ingestion"
 source:
   endpoint: "rd1"
   properties:
-    source_file_pattern: "tests"
     format: "delimited"
+    format_properties:
+      escape_character: "\\\\"
+      infer_schema: false
+      quote_delimiter: "\""
+      column_delimiter: ","
+      trim_white_space: "none"
+      contains_header: true
+    source_file_pattern: "tests"
     charset: "UTF-8"
     partial_load: false
-    format_properties:
-      column_delimiter: ","
-      quote_delimiter: "\""
-      escape_char: "\\\\"
-      contains_header: true
-      infer_schema: false
-      clean_column_name: false
-      trim_white_space: "none"
+job:
+  type: "ingestion"
+version: 1
+folder: "/c/c1/b1"
 schema:
   schema_derivation_strategy: "source"
   strict_schema_check: true
   discard: true
   columns:
-  - name: "date2"
-    transform_sql:
-      value: ""
-    data_type:
-      value: "int"
-      validate: false
-    primary_key:
+  - nullable:
       value: false
-    nullable:
-      value: false
+    name: "date2"
     validate_sql:
       value: ""
     partition_column: true
+    data_type:
+      value: "int"
+      validate: false
+    transform_sql:
+      value: ""
+    primary_key:
+      value: false
 target:
   endpoint: "rd1"
   properties:
     format: "delimited"
-    charset: "UTF-8"
     path: "test"
-    preserve_hierarchy: false
     format_properties:
       column_delimiter: ","
       quote_delimiter: "\""
       contains_header: true
       merge_file: false
-folder: "/c/c1/b1"
+    charset: "UTF-8"
+    preserve_hierarchy: false
