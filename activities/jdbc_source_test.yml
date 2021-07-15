@@ -5,8 +5,7 @@ source:
   endpoint: "sqlserver1"
   properties:
     table: "test_table"
-    format_properties:
-      clean_column_name: false
+    format_properties: {}
 schema:
   schema_derivation_strategy: "source"
   strict_schema_check: true
