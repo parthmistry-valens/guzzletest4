@@ -3,12 +3,14 @@ job:
   type: "ingestion"
 source:
   endpoint: "sqlserver1"
-  properties: {}
+  properties:
+    format_properties:
+      clean_column_name: false
 schema:
   schema_derivation_strategy: "source"
   strict_schema_check: true
   discard: true
-target:
+target_test:
   endpoint: "sqlserver1"
   properties:
     table: "test"

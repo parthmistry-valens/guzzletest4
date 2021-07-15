@@ -18,7 +18,7 @@ source:
       infer_schema: false
       clean_column_name: false
       trim_white_space: "none"
-schema:
+schema_test:
   schema_derivation_strategy: "schema"
   strict_schema_check: true
   discard: true

@@ -6,13 +6,13 @@ source:
   endpoint: "lo_lfs"
   properties:
     source_file_pattern: "csv/users*.csv"
-    format: "json"
+    format: "avro"
     charset: "UTF-8"
     partial_load: false
     control_file:
       extension: "ctl"
-    format_properties:
-      multiline: false
+    format_property:
+      format: "avro"
 schema:
   schema_derivation_strategy: "schema"
   strict_schema_check: true

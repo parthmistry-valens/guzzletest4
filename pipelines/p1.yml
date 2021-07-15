@@ -1,6 +1,6 @@
-description: ""
 version: 1
-properties: {}
-concurrency:
-  threads: 1
+description: ""
+parallel: 1
+properties:
+  auto_dependency: false
 jobs: []
