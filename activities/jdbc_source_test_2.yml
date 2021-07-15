@@ -4,9 +4,8 @@ job:
 source:
   endpoint: "sqlserver1"
   properties:
-    query: "select * from test"
-    format_properties:
-      clean_column_name: false
+    format_properties: {}
+    sql: "select * from test"
 schema:
   schema_derivation_strategy: "source"
   strict_schema_check: true

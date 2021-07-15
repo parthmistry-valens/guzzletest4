@@ -1,5 +1,6 @@
-version: 1
 description: ""
-parallel: 1
+version: 1
 properties: {}
+concurrency:
+  threads: 1
 jobs: []
