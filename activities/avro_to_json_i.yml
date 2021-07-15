@@ -1,0 +1,29 @@
+version: 1
+job:
+  type: "ingestion"
+  description: "Special desc"
+source:
+  endpoint: "lo_lfs"
+  properties:
+    source_file_pattern: "csv/users*.csv"
+    format: "avro"
+    charset: "UTF-8"
+    partial_load: false
+    control_file:
+      extension: "ctl"
+    format_properties:
+      format: "avro"
+schema:
+  schema_derivation_strategy: "schema"
+  strict_schema_check: true
+  discard: true
+  columns: []
+target:
+  endpoint: "lo_lfs"
+  properties:
+    format: "json"
+    charset: "UTF-8"
+    path: "json_tgt"
+    preserve_hierarchy: false
+    format_properties:
+      merge_file: true
