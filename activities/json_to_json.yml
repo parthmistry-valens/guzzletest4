@@ -12,6 +12,7 @@ source:
     control_file:
       extension: "ctl"
     format_properties:
+      clean_column_name: false
       multiline: false
 schema:
   schema_derivation_strategy: "schema"
