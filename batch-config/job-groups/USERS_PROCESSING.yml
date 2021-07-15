@@ -1,4 +1,0 @@
-version: 1
-#parallel: 5
-jobs:
-  - external2

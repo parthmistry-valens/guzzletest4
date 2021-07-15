@@ -1,7 +1,0 @@
-version: 1
-job:
-  type: "processing"
-source:
-  endpoint: "lo_jdbc"
-  properties:
-    table: "aa12"

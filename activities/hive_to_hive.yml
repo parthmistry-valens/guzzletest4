@@ -1,0 +1,19 @@
+version: 1
+job:
+  type: "ingestion"
+source:
+  endpoint: "hive"
+  properties:
+    query: "select * from test"
+    format_properties:
+      clean_column_name: false
+schema:
+  schema_derivation_strategy: "source"
+  strict_schema_check: true
+  discard: true
+target:
+  endpoint: "hive"
+  properties:
+    table: "test1"
+    auto_create_table: true
+  operation: "append"
