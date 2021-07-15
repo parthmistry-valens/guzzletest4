@@ -4,7 +4,6 @@ job:
 source:
   endpoint: "sqlserver1"
   properties:
-    table: "test_table"
     format_properties:
       clean_column_name: false
 schema:

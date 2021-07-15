@@ -6,15 +6,19 @@ source:
   endpoint: "lo_lfs"
   properties:
     source_file_pattern: "csv/users*.csv"
-    format: "json"
+    format: "delimited"
     charset: "UTF-8"
     partial_load: false
     control_file:
       extension: "ctl"
     format_properties:
+      column_delimiter: ","
+      quote_delimiter: "\""
+      contains_header: true
+      infer_schema: false
       clean_column_name: false
-      multiline: false
-schema:
+      trim_white_space: "none"
+schema_test:
   schema_derivation_strategy: "schema"
   strict_schema_check: true
   discard: true

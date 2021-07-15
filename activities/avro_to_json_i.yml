@@ -11,7 +11,7 @@ source:
     partial_load: false
     control_file:
       extension: "ctl"
-    format_properties:
+    format_property:
       format: "avro"
 schema:
   schema_derivation_strategy: "schema"

@@ -14,7 +14,6 @@ source:
     format_properties:
       column_delimiter: ","
       quote_delimiter: "\""
-      escape_char: "\\\\"
       contains_header: true
       infer_schema: false
       clean_column_name: false
