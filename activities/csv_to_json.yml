@@ -16,7 +16,6 @@ source:
       quote_delimiter: "\""
       contains_header: true
       infer_schema: false
-      clean_column_name: false
       trim_white_space: "none"
 schema:
   schema_derivation_strategy: "schema"
